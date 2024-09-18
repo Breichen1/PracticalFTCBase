@@ -34,5 +34,13 @@ public class ExampleDrivebotAuto extends LinearOpMode {
         //Put auto steps here
         m_Drive.AutoDriveRC(12, 0, 5);
         //Drive the robot forward 1 foot.
+        m_Drive.AutoDriveRC(0, 12, 5);
+        //Drive the robot Left 1 foot.
+        m_Drive.AutoDriveRC(-12, 0, 5);
+        //Drive the robot backward 1 foot.
+        m_Drive.AutoDriveRC(12, -12, 5);
+        //Drive the robot right 1 foot.
+        m_Drive.SetHeading(90, 3);
+        //Set heading to 90 degrees
     }
 }

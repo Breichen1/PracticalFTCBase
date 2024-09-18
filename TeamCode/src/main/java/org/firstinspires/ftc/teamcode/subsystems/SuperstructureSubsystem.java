@@ -42,7 +42,7 @@ public class SuperstructureSubsystem {
 
         elevatorMotor1 = new Motor(Map, "elevatorMotor1");
         elevatorMotor2 = new Motor(Map, "elevatorMotor2");
-        lateratorMotor = new Motor(Map, "lateratorMotor");
+        lateratorMotor = new Motor(Map, "ArmMotor");
 
         leftServo = Map.get(Servo.class, "leftServo");
         rightServo = Map.get(Servo.class, "rightServo");
@@ -134,7 +134,7 @@ public class SuperstructureSubsystem {
             Laterator.setInches(LateratorInches);
 
             while((runtime.seconds() < TimeoutS) &&
-                    !Elevator.atSetpoint() && Laterator.atSetpoint() ) {
+                    !Elevator.atSetpoint() || Laterator.atSetpoint() ) {
                 //Periodic
                 //actually drives the Superstructure.
                 Elevator.Periodic();

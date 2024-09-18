@@ -35,7 +35,6 @@ public class Teleop2025 extends LinearOpMode {
         waitForStart();
         //Run immediately when starting
 
-
         while (opModeIsActive()) {
                 //Periodic Opmode
                 m_Superstructure.periodic();
@@ -44,6 +43,8 @@ public class Teleop2025 extends LinearOpMode {
                         "Periodic currently running",
                         "Operator can hold left bumper for manual control");
 
+                //TODO: Put button bindings below here
+            ////////////////////////////////////////////////////////////////////////////////
                 //IMU Reset button
                 if (Driver.getButton(GamepadKeys.Button.Y)) {
                    m_Drive.resetHeading();
