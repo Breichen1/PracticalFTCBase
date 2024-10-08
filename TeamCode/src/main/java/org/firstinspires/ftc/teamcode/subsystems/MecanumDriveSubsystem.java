@@ -52,11 +52,6 @@ public class MecanumDriveSubsystem {
 
         Drive = new MecanumDrive(leftFront, rightFront, leftBack, rightBack);
 
-        //Odometry for if there are no deadwheels
-        //NoDeadwheelKinematics = new MecanumDriveKinematics(new Translation2d(-0.25, 0.25), new Translation2d(0.25, 0.25), new Translation2d(-0.25, -0.25), new Translation2d(0.25, -0.25));
-        //NoDeadwheelOdometry = new MecanumDriveOdometry(NoDeadwheelKinematics, new Rotation2d(getHeading()));
-        //TODO: This portion is a WIP for a robot without 2 dead-wheel odometry.
-
         imu = new RevIMU(Map, "imu");
         imu.init();
     }
@@ -101,7 +96,6 @@ public class MecanumDriveSubsystem {
         //assumes Forward deadwheel is plugged into RightBack
         return rightBack.getCurrentPosition();
     }
-
 
     public void resetDriveEncoders() {
         leftFront.stopAndResetEncoder();
