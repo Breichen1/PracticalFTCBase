@@ -31,5 +31,10 @@ public class ExampleDrivebotAuto extends LinearOpMode {
         if (isStopRequested()) return;
 
         m_Drive.AutoDriveRC(12, 0, 5);
+        //Set superstructure positions with a 3 second timeout
+        m_Superstructure.setAutoPosition(1360, 2800, 1200, 3);
+        //Open the servo
+        m_Superstructure.Pincher.open();
+
     }
 }

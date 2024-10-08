@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.subsystems;
 import com.arcrobotics.ftclib.hardware.motors.Motor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.Constants;
@@ -29,6 +30,8 @@ public class SuperstructureSubsystem {
     private Servo leftServo;
     private Servo rightServo;
     private Telemetry telemetry;
+
+    ElapsedTime runtime;
 
     //Creates new superstructure (arm, elevator, wrist)
     public SuperstructureSubsystem(HardwareMap Map, Telemetry telemetry){
@@ -123,11 +126,33 @@ public class SuperstructureSubsystem {
 
     public void periodic() {
 
-        Arm.armPeriodic();
-        Wrist.armPeriodic();
-        Elevator.armPeriodic();
+        Arm.Periodic();
+        Wrist.Periodic();
+        Elevator.Periodic();
         telemetry.addData("Arm Angle", Arm.getAngle());
         telemetry.addData("Wrist Angle", Wrist.getAngle());
         telemetry.addData("Elevator Inches", Elevator.getInches());
+    }
+
+    public void setAutoPosition(double ElevatorInches, double ArmAngle, double WristAngle, double TimeoutS) {
+        runtime.reset();
+
+        Wrist.setAngle(1130);
+        Arm.setAngle(1970);
+        Elevator.setInches(1360);
+
+        while((runtime.seconds() < TimeoutS) &&
+                !Elevator.atSetpoint() || Wrist.atSetpoint() || Arm.atSetpoint() ) {
+            //Periodic
+            //actually drives the Superstructure.
+            Elevator.Periodic();
+            Wrist.Periodic();
+            Arm.Periodic();
+            telemetry.addData("SUPERSTRUCTURE STATUS", "RUNNING");
+            telemetry.addData("Elevator ticks:", Elevator.getInches());
+            telemetry.addData("Arm ticks:", Arm.getAngle());
+            telemetry.addData("Wrist ticks:", Wrist.getAngle());
+            telemetry.update();
+        }
     }
 }

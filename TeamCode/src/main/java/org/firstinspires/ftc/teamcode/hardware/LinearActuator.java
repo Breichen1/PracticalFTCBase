@@ -77,10 +77,14 @@ public class LinearActuator {
         isDebug = true;
     }
 
+    public boolean atSetpoint()
+    {return armController.atSetPoint();}
+
+
     /**
      * Runs all periodic functions of the actuator - MUST BE ADDED TO PERIODIC ROBOT CODE.
      */
-    public void armPeriodic(){
+    public void Periodic(){
         // Enable/disable PID
         if (PIDOn) {
             motor.set(armController.calculate(getInches(), setpoint));

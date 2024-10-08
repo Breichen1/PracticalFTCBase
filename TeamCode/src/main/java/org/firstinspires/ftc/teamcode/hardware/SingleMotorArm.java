@@ -82,10 +82,14 @@ public class SingleMotorArm {
         isDebug = true;
     }
 
+    public boolean atSetpoint()
+    {return armController.atSetPoint();}
+
+
     /**
      * Runs all periodic functions of the arm - MUST BE ADDED TO PERIODIC ROBOT CODE.
      */
-    public void armPeriodic(){
+    public void Periodic(){
         // Enable/disable PID
         if (PIDOn) {
             motor.set(armController.calculate(getAngle(), setpoint));
