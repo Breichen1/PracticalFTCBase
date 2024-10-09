@@ -31,7 +31,7 @@ public class SuperstructureSubsystem {
     private Servo rightServo;
     private Telemetry telemetry;
 
-    ElapsedTime runtime;
+    private ElapsedTime runtime = new ElapsedTime();
 
     //Creates new superstructure (arm, elevator, wrist)
     public SuperstructureSubsystem(HardwareMap Map, Telemetry telemetry){
