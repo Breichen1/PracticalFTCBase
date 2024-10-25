@@ -32,8 +32,6 @@ public class MecanumDriveSubsystem {
     private Motor leftBack;
     private Motor rightBack;
     private Telemetry telemetry;
-    //private MecanumDriveKinematics NoDeadwheelKinematics;
-    //private MecanumDriveOdometry NoDeadwheelOdometry
 
     private ElapsedTime runtime = new ElapsedTime();
 

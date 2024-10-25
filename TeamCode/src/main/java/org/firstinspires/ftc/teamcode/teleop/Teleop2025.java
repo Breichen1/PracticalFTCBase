@@ -59,15 +59,15 @@ public class Teleop2025 extends LinearOpMode {
                 }
 
                 if (Operator.getButton(GamepadKeys.Button.A)) {
-                    m_Superstructure.pickupPreset();
+                    m_Superstructure.groundPickupPreset();
                 }
 
                 if (Operator.getButton(GamepadKeys.Button.X)) {
-                    m_Superstructure.mediumPreset();
+                    m_Superstructure.lowBucketPreset();
                 }
 
                 if (Operator.getButton(GamepadKeys.Button.Y)) {
-                    m_Superstructure.highPreset();
+                    m_Superstructure.highBucketPreset();
                 }
 
                 //Superstructure manual input toggle - Triggered by holding holding left bumper
@@ -79,11 +79,11 @@ public class Teleop2025 extends LinearOpMode {
 
                 //Pincher controls
                 if (Operator.getButton(GamepadKeys.Button.LEFT_BUMPER)) {
-                    m_Superstructure.Pincher.open();
+                    m_Superstructure.pincher.open();
                 }
 
                 if ((Operator.getTrigger(GamepadKeys.Trigger.LEFT_TRIGGER) > 0.3)) {
-                    m_Superstructure.Pincher.close();
+                    m_Superstructure.pincher.close();
                 }
 
                 telemetry.update();
