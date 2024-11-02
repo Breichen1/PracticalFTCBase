@@ -88,21 +88,21 @@ public class Teleop2025 extends LinearOpMode {
 
               //Wrist controls
                 if (Operator.getButton(GamepadKeys.Button.DPAD_UP)) {
-                    m_Superstructure.pincher.retract();
+                    m_Superstructure.pincher.untuck();
                     //m_Superstructure.laterator.retract();
                 }
 
                 if (Operator.getButton(GamepadKeys.Button.DPAD_DOWN)) {
-                    m_Superstructure.pincher.groundPickup();
-                   // m_Superstructure.laterator.groundPickup();
+                    m_Superstructure.pincher.tuck();
+                    //m_Superstructure.laterator.groundPickup();
                  }
 
                 if (Operator.getButton(GamepadKeys.Button.DPAD_LEFT)) {
-                    m_Superstructure.pincher.wallPickup();
+                    m_Superstructure.pincher.setPivotAngle(1);
                 }
 
                 if (Operator.getButton(GamepadKeys.Button.DPAD_RIGHT)) {
-                    m_Superstructure.pincher.scoreSample();
+                    m_Superstructure.pincher.setPivotAngle(0.5);
                 }
 
                 telemetry.update();

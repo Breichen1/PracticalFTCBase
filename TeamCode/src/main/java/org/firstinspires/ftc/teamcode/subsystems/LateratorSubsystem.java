@@ -20,11 +20,11 @@ public class LateratorSubsystem {
 
     public LateratorSubsystem(HardwareMap Map) {
         //Servo hardwaremap setup
-        intakeServo = Map.get(CRServo.class, "pincherServo");
+        intakeServo = Map.get(CRServo.class, "intakeServo");
         leftPivotServo = Map.get(Servo.class, "leftPivotServo");
         rightPivotServo = Map.get(Servo.class, "rightPivotServo");
-        leftLateratorServo = Map.get(Servo.class, "leftWristServo");
-        rightLateratorServo = Map.get(Servo.class, "rightWristServo");
+        leftLateratorServo = Map.get(Servo.class, "leftLateratorServo");
+        rightLateratorServo = Map.get(Servo.class, "rightLateratorServo");
 
         //Hardware compilation
         leftPivot = new ServoActuator(leftPivotServo);
@@ -36,18 +36,18 @@ public class LateratorSubsystem {
     //set the angle of the pivot
     public void setPivotAngle(double angle) {
         leftPivot.setServos(angle);
-        rightPivot.setServos(-angle);
+        rightPivot.setServos(1-angle);
     }
 
     //set the angle of the wrist
     public void setLaterator(double value) {
         leftLaterator.setServos(value);
-        rightLaterator.setServos(-value);
+        rightLaterator.setServos(1 -value);
     }
 
     //set pincher to open
     public void intake() {
-        intakeServo.setPower(1);
+        intakeServo.setPower(-1);
     }
 
     //set pincher to closed
@@ -57,15 +57,21 @@ public class LateratorSubsystem {
 
     //Presets
     public void groundPickup() {
-        setLaterator(1);
-        setPivotAngle(1);
+        setLaterator(0.45);
+        setPivotAngle(0.75);
         intake();
     }
 
     public void retract() {
         setLaterator(0);
-        setPivotAngle(0);
+        setPivotAngle(0.45);
         stopIntake();
+    }
+
+    public void dump() {
+        //setLaterator(0);
+        setPivotAngle(0.15);
+        //stopIntake();
     }
 
 }
