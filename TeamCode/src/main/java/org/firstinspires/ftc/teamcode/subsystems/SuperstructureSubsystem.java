@@ -19,7 +19,6 @@ import org.firstinspires.ftc.teamcode.hardware.SingleMotorArm;
 public class SuperstructureSubsystem {
 
     public DoubleMotorLinearActuator Elevator;
-    public DoubleMotorArm Arm;
 
     public PincherSubsystem pincher;
 
@@ -121,7 +120,7 @@ public class SuperstructureSubsystem {
         telemetry.addData("Elevator Inches", Elevator.getInches());
     }
 
-    public void setAutoPosition(double ElevatorInches, double LateratorInches, double TimeoutS) {
+    public void setAutoPosition(double ElevatorInches, double TimeoutS) {
             runtime.reset();
 
             Elevator.setInches(ElevatorInches);
