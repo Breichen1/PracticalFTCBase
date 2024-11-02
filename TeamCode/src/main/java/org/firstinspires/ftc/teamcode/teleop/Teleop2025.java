@@ -71,7 +71,7 @@ public class Teleop2025 extends LinearOpMode {
                 }
 
                 //Superstructure manual input toggle - Triggered by holding holding left bumper
-                if (Operator.getButton(GamepadKeys.Button.LEFT_BUMPER)) {
+                if (Operator.getButton(GamepadKeys.Button.BACK)) {
                     m_Superstructure.ManualInput(Operator.getLeftY());
                     telemetry.addData(
                             "MANUAL INPUT", "ENABLED");
@@ -84,6 +84,23 @@ public class Teleop2025 extends LinearOpMode {
 
                 if ((Operator.getTrigger(GamepadKeys.Trigger.LEFT_TRIGGER) > 0.3)) {
                     m_Superstructure.pincher.close();
+                }
+
+              //Wrist controls
+                if (Operator.getButton(GamepadKeys.Button.DPAD_UP)) {
+                    m_Superstructure.pincher.retract();
+                }
+
+                if (Operator.getButton(GamepadKeys.Button.DPAD_DOWN)) {
+                 m_Superstructure.pincher.groundPickup();
+                 }
+
+                if (Operator.getButton(GamepadKeys.Button.DPAD_LEFT)) {
+                    m_Superstructure.pincher.wallPickup();
+                }
+
+                if (Operator.getButton(GamepadKeys.Button.DPAD_RIGHT)) {
+                    m_Superstructure.pincher.scoreSample();
                 }
 
                 telemetry.update();

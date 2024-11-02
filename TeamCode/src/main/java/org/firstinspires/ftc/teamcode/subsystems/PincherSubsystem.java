@@ -43,7 +43,7 @@ public class PincherSubsystem {
 
     //set pincher to open
     public void open() {
-        pincher.setServos(1);
+        pincher.setServos(0.7);
     }
 
     //set pincher to closed
