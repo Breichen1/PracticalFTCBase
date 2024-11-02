@@ -54,7 +54,7 @@ public class PincherSubsystem {
     //Presets
     public void groundPickup() {
         //open();
-        setWristAngle(-1);
+        setWristAngle(0.85);
         //setPivotAngle(1);
     }
 
@@ -65,7 +65,7 @@ public class PincherSubsystem {
     }
 
     public void retract() {
-        setWristAngle(1);
+        setWristAngle(-1);
        // setPivotAngle(0);
     }
 
