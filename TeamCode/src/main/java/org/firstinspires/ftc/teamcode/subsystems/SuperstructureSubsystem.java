@@ -53,7 +53,7 @@ public class SuperstructureSubsystem {
                 elevatorMotor2,
                 Constants.SuperstructureConstants.elevatorCPI,
                 false,
-                false,
+                true,
                 Constants.SuperstructureConstants.elevatorPID);
     }
 
@@ -109,7 +109,7 @@ public class SuperstructureSubsystem {
      */
     public void ManualInput(double input1) {
 
-        Elevator.setOutput(input1 * 0.1);
+        Elevator.setOutput(input1 * 0.5);
         telemetry.addData("Elevator tick", Elevator.motor1.getCurrentPosition());
     }
 
