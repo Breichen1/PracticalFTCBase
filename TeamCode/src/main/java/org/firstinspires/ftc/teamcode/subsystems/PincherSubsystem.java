@@ -38,7 +38,7 @@ public class PincherSubsystem {
     //set the angle of the wrist
     public void setWristAngle(double value) {
         leftWrist.setServos(value);
-        leftWrist.setServos(-value);
+        rightWrist.setServos(-value);
     }
 
     //set pincher to open
