@@ -54,7 +54,7 @@ public class Teleop2025 extends LinearOpMode {
                 m_Drive.Drive(Driver.getLeftX(), Driver.getLeftY(), Driver.getRightX(), Driver.getButton(GamepadKeys.Button.RIGHT_BUMPER));
 
                 //Superstructure preset - Zero everything
-                if (Operator.getButton(GamepadKeys.Button.BACK)) {
+                if (Operator.getButton(GamepadKeys.Button.START)) {
                     m_Superstructure.zeroPreset();
                 }
 
