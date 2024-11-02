@@ -25,8 +25,7 @@ public class SuperstructureSubsystem {
     private Motor elevatorMotor1;
     private Motor elevatorMotor2;
 
-    private Servo lateratorServo;
-    public ServoActuator extendo;
+   private LateratorSubsystem laterator;
 
     private Telemetry telemetry;
 
@@ -41,11 +40,9 @@ public class SuperstructureSubsystem {
         elevatorMotor1 = new Motor(Map, "elevatorMotor1");
         elevatorMotor2 = new Motor(Map, "elevatorMotor2");
 
-        lateratorServo = Map.get(Servo.class, "lateratorServo");
-
-        extendo = new ServoActuator(lateratorServo);
-
         pincher = new PincherSubsystem(Map);
+
+        laterator = new LateratorSubsystem(Map);
 
         //Link motors to superstructure parts
         Elevator = new DoubleMotorLinearActuator(
@@ -66,7 +63,7 @@ public class SuperstructureSubsystem {
     public void zeroPreset() {
 
         Elevator.setInches(0);
-        extendo.setServos(-1);
+        laterator.retract();
         pincher.retract();
     }
 
@@ -74,24 +71,16 @@ public class SuperstructureSubsystem {
     public void groundPickupPreset() {
 
         Elevator.setInches(0);
-        extendo.setServos(1);
+        laterator.groundPickup();
         pincher.open();
         pincher.groundPickup();
-    }
-
-    public void wallPickupPreset() {
-
-        Elevator.setInches(5000);
-        extendo.setServos(-1);
-        pincher.open();
-        pincher.wallPickup();
     }
 
     //Sample preset - Brings all mechanisms to low bucket
     public void lowPreset() {
 
         Elevator.setInches(8500);
-        extendo.setServos(-1);
+        laterator.retract();
         pincher.scoreSample();
     }
 
@@ -99,7 +88,7 @@ public class SuperstructureSubsystem {
     public void highPreset() {
 
         Elevator.setInches(12000);
-        extendo.setServos(-1);
+        laterator.retract();
         pincher.scoreSample();
     }
 

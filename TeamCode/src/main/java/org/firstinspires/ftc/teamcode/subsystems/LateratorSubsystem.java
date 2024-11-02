@@ -59,11 +59,13 @@ public class LateratorSubsystem {
     public void groundPickup() {
         setLaterator(1);
         setPivotAngle(1);
+        intake();
     }
 
     public void retract() {
         setLaterator(0);
         setPivotAngle(0);
+        stopIntake();
     }
 
 }
