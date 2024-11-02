@@ -89,10 +89,12 @@ public class Teleop2025 extends LinearOpMode {
               //Wrist controls
                 if (Operator.getButton(GamepadKeys.Button.DPAD_UP)) {
                     m_Superstructure.pincher.retract();
+                    //m_Superstructure.laterator.retract();
                 }
 
                 if (Operator.getButton(GamepadKeys.Button.DPAD_DOWN)) {
-                 m_Superstructure.pincher.groundPickup();
+                    m_Superstructure.pincher.groundPickup();
+                   // m_Superstructure.laterator.groundPickup();
                  }
 
                 if (Operator.getButton(GamepadKeys.Button.DPAD_LEFT)) {

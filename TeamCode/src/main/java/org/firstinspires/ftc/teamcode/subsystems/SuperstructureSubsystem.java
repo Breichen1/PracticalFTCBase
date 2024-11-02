@@ -21,11 +21,10 @@ public class SuperstructureSubsystem {
     public DoubleMotorLinearActuator Elevator;
 
     public PincherSubsystem pincher;
+    public LateratorSubsystem laterator;
 
     private Motor elevatorMotor1;
     private Motor elevatorMotor2;
-
-   private LateratorSubsystem laterator;
 
     private Telemetry telemetry;
 
