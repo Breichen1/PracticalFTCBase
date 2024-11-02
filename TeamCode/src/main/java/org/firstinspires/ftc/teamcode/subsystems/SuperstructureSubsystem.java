@@ -25,7 +25,7 @@ public class SuperstructureSubsystem {
     private Motor elevatorMotor1;
     private Motor elevatorMotor2;
 
-    private Servo extendoServo;
+    private Servo lateratorServo;
     public ServoActuator extendo;
 
     private Telemetry telemetry;
@@ -41,9 +41,9 @@ public class SuperstructureSubsystem {
         elevatorMotor1 = new Motor(Map, "elevatorMotor1");
         elevatorMotor2 = new Motor(Map, "elevatorMotor2");
 
-        extendoServo = Map.get(Servo.class, "extendoServo");
+        lateratorServo = Map.get(Servo.class, "lateratorServo");
 
-        extendo = new ServoActuator(extendoServo);
+        extendo = new ServoActuator(lateratorServo);
 
         pincher = new PincherSubsystem(Map);
 
@@ -109,7 +109,7 @@ public class SuperstructureSubsystem {
      */
     public void ManualInput(double input1) {
 
-        Elevator.setOutput(input1);
+        Elevator.setOutput(input1 * 0.1);
         telemetry.addData("Elevator tick", Elevator.motor1.getCurrentPosition());
     }
 
