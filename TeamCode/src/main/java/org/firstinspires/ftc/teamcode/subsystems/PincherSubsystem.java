@@ -65,7 +65,7 @@ public class PincherSubsystem {
     }
 
     public void retract() {
-        setWristAngle(1);
+        setWristAngle(-1);
        // setPivotAngle(0);
     }
 
