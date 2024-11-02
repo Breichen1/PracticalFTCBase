@@ -52,7 +52,7 @@ public class SuperstructureSubsystem {
                 elevatorMotor1,
                 elevatorMotor2,
                 Constants.SuperstructureConstants.elevatorCPI,
-                true,
+                false,
                 false,
                 Constants.SuperstructureConstants.elevatorPID);
     }
