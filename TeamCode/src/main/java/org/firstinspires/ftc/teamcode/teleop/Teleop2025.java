@@ -72,7 +72,7 @@ public class Teleop2025 extends LinearOpMode {
 
                 //Superstructure manual input toggle - Triggered by holding holding left bumper
                 if (Operator.getButton(GamepadKeys.Button.LEFT_BUMPER)) {
-                    m_Superstructure.ManualInput(Operator.getLeftY(), Operator.getRightY() );
+                    m_Superstructure.ManualInput(Operator.getLeftY());
                     telemetry.addData(
                             "MANUAL INPUT", "ENABLED");
                 }

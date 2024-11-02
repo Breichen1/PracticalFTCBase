@@ -106,9 +106,8 @@ public class SuperstructureSubsystem {
     /**
      * Sets the Elevator/laterator into a manual input mode where the input can be toggled by button
      * @param input1 raw input to the elevator - should be a joystick
-     * @param input2 raw input to the laterator - should be a joystick
      */
-    public void ManualInput(double input1, double input2) {
+    public void ManualInput(double input1) {
 
         Elevator.setOutput(input1);
         telemetry.addData("Elevator tick", Elevator.motor1.getCurrentPosition());
