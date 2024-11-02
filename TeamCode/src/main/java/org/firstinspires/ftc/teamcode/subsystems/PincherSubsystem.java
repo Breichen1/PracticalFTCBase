@@ -43,7 +43,7 @@ public class PincherSubsystem {
 
     //set pincher to open
     public void open() {
-        pincher.setServos(1);
+        pincher.setServos(0.2);
     }
 
     //set pincher to closed
@@ -55,11 +55,11 @@ public class PincherSubsystem {
     public void untuck() {
         open();
         setWristAngle(-1);
-        setPivotAngle(1);
+        setPivotAngle(0.3);
     }
     public void tuck() {
         setWristAngle(1);
-        setPivotAngle(1);
+        setPivotAngle(0.3);
     }
 
     public void wallPickup() {

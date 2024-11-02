@@ -69,7 +69,7 @@ public class SuperstructureSubsystem {
     //Sample preset - Brings all mechanisms to pickup
     public void groundPickupPreset() {
 
-        Elevator.setInches(500);
+        Elevator.setInches(600);
         laterator.groundPickup();
         pincher.open();
         pincher.untuck();
@@ -77,7 +77,7 @@ public class SuperstructureSubsystem {
 
     public void tuckLaterator() {
 
-        Elevator.setInches(500);
+        Elevator.setInches(600);
         laterator.retract();
         pincher.open();
         pincher.untuck();
@@ -94,7 +94,7 @@ public class SuperstructureSubsystem {
     //Sample preset - Brings all mechanisms to low bucket
     public void lowPreset() {
 
-        Elevator.setInches(8500);
+        Elevator.setInches(0);
         laterator.retract();
         pincher.scoreSample();
     }
@@ -102,7 +102,7 @@ public class SuperstructureSubsystem {
     //Sample preset - Brings all mechanisms to high bucket
     public void highPreset() {
 
-        Elevator.setInches(12000);
+        Elevator.setInches(0);
         laterator.retract();
         pincher.scoreSample();
     }

@@ -58,7 +58,7 @@ public class LateratorSubsystem {
     //Presets
     public void groundPickup() {
         setLaterator(0.45);
-        setPivotAngle(0.75);
+        setPivotAngle(0.85);
         intake();
     }
 
