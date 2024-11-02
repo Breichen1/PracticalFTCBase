@@ -41,7 +41,8 @@ public class DoubleMotorLinearActuator {
      * Returns the current extension of the actuator in inches
      */
     public double getInches() {
-        return (motor2.getCurrentPosition() / countsPerInch);
+       // return (motor2.getCurrentPosition() / countsPerInch);
+        return motor2.getCurrentPosition();
     }
 
     /**
