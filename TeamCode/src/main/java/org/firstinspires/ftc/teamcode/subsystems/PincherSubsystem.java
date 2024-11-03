@@ -15,6 +15,7 @@ public class PincherSubsystem {
     private Servo pivotServo;
     private Servo leftWristServo;
     private Servo rightWristServo;
+    double pivotAngle = 0;
 
     public PincherSubsystem(HardwareMap Map) {
         //Servo hardwaremap setup
@@ -35,10 +36,14 @@ public class PincherSubsystem {
         pivot.setServos(angle);
     }
 
+    public void setPivotAngleControl(double angle) {
+        pivot.setServos(pivotServo.getPosition() + angle);
+    }
+
     //set the angle of the wrist
     public void setWristAngle(double value) {
         leftWrist.setServos(value);
-        rightWrist.setServos(-value);
+        rightWrist.setServos(1-value);
     }
 
     //set pincher to open
@@ -55,27 +60,27 @@ public class PincherSubsystem {
     public void groundPickup() {
         //open();
         setWristAngle(0.85);
-        //setPivotAngle(1);
+        setPivotAngle(0.6);
     }
 
     public void wallPickup() {
        // open();
-        setWristAngle(0);
-        //setPivotAngle(0);
+        setWristAngle(0.40);
+        setPivotAngle(0);
     }
 
     public void retract() {
         setWristAngle(-1);
-       // setPivotAngle(0);
+        setPivotAngle(0.6);
     }
 
     public void scoreSample() {
-        setWristAngle(0.75);
-       // setPivotAngle(0);
+        setWristAngle(0.40);
+        setPivotAngle(0);
     }
 
     public void scoreSpecimen() {
-        setWristAngle(-0.25);
+        setWristAngle(0);
       //  setPivotAngle(0);
     }
 

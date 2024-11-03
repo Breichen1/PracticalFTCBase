@@ -86,6 +86,15 @@ public class Teleop2025 extends LinearOpMode {
                     m_Superstructure.pincher.close();
                 }
 
+                //Pivot controls
+                if (Operator.getButton(GamepadKeys.Button.RIGHT_BUMPER)) {
+                    m_Superstructure.pincher.setPivotAngleControl(0.1);
+                 }
+
+                if ((Operator.getTrigger(GamepadKeys.Trigger.RIGHT_TRIGGER) > 0.3)) {
+                    m_Superstructure.pincher.setPivotAngleControl(-0.1);
+               }
+
               //Wrist controls
                 if (Operator.getButton(GamepadKeys.Button.DPAD_UP)) {
                     m_Superstructure.pincher.retract();
@@ -101,6 +110,28 @@ public class Teleop2025 extends LinearOpMode {
 
                 if (Operator.getButton(GamepadKeys.Button.DPAD_RIGHT)) {
                     m_Superstructure.pincher.scoreSample();
+                }
+
+                //Presets
+                 if (Operator.getButton(GamepadKeys.Button.A)) {
+                    m_Superstructure.groundPickupPreset();
+                }
+
+                if (Operator.getButton(GamepadKeys.Button.X)) {
+                    m_Superstructure.wallPickupPreset();
+                }
+
+                if (Operator.getButton(GamepadKeys.Button.B)) {
+                    m_Superstructure.lowPreset();
+                }
+
+                if (Operator.getButton(GamepadKeys.Button.Y)) {
+                    m_Superstructure.highPreset();
+                }
+
+                //Pivot manual control
+                if (Math.abs(Operator.getRightX()) > 0){
+                    m_Superstructure.pincher.setPivotAngle((Operator.getRightX() / 2) + 0.5);
                 }
 
                 telemetry.update();
