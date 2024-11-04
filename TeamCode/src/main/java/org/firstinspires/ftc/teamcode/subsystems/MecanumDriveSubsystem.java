@@ -48,6 +48,8 @@ public class MecanumDriveSubsystem {
         leftBack = new Motor(Map, "leftBack");
         rightBack = new Motor(Map, "rightBack");
 
+
+
         Drive = new MecanumDrive(leftFront, rightFront, leftBack, rightBack);
 
         imu = new RevIMU(Map, "imu");
@@ -98,6 +100,14 @@ public class MecanumDriveSubsystem {
     public void resetDriveEncoders() {
         leftFront.stopAndResetEncoder();
         rightBack.stopAndResetEncoder();
+    }
+
+    public void zeroPowerBrake() {
+        //sets the drive motors to a brake position
+        leftFront.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+        rightBack.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+        rightFront.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+        leftBack.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
     }
 
     public void drivePeriodic() {
