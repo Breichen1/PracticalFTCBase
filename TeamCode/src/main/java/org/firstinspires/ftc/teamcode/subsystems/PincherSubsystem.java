@@ -38,12 +38,12 @@ public class PincherSubsystem {
     //set the angle of the wrist
     public void setWristAngle(double value) {
         leftWrist.setServos(value);
-        rightWrist.setServos(-value);
+        rightWrist.setServos(1 -value);
     }
 
     //set pincher to open
     public void open() {
-        pincher.setServos(0.7);
+        pincher.setServos(0.2);
     }
 
     //set pincher to closed
@@ -52,31 +52,35 @@ public class PincherSubsystem {
     }
 
     //Presets
-    public void groundPickup() {
-        //open();
-        setWristAngle(0.85);
-        //setPivotAngle(1);
+    public void untuck() {
+        open();
+        setWristAngle(-1);
+        setPivotAngle(0.3);
+    }
+    public void tuck() {
+        setWristAngle(1);
+        setPivotAngle(0.3);
     }
 
     public void wallPickup() {
        // open();
         setWristAngle(0);
-        //setPivotAngle(0);
+        setPivotAngle(1);
     }
 
     public void retract() {
         setWristAngle(-1);
-       // setPivotAngle(0);
+        setPivotAngle(0);
     }
 
     public void scoreSample() {
         setWristAngle(0.75);
-       // setPivotAngle(0);
+       // setPivotAngle(1);
     }
 
     public void scoreSpecimen() {
         setWristAngle(-0.25);
-      //  setPivotAngle(0);
+      //  setPivotAngle(1);
     }
 
 
