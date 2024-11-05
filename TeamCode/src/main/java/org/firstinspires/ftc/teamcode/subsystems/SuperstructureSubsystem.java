@@ -52,7 +52,7 @@ public class SuperstructureSubsystem {
                 elevatorMotor1,
                 elevatorMotor2,
                 Constants.SuperstructureConstants.elevatorCPI,
-                false,
+                true,
                 false,
                 Constants.SuperstructureConstants.elevatorPID);
     }
@@ -81,7 +81,7 @@ public class SuperstructureSubsystem {
 
     public void wallPickupPreset() {
 
-        Elevator.setInches(5000);
+        Elevator.setInches(1000);
         extendo.setServos(-1);
         pincher.open();
         pincher.wallPickup();
@@ -90,7 +90,7 @@ public class SuperstructureSubsystem {
     //Sample preset - Brings all mechanisms to low bucket
     public void lowPreset() {
 
-        Elevator.setInches(8500);
+        Elevator.setInches(1700);
         extendo.setServos(-1);
         pincher.scoreSample();
     }
@@ -98,7 +98,7 @@ public class SuperstructureSubsystem {
     //Sample preset - Brings all mechanisms to high bucket
     public void highPreset() {
 
-        Elevator.setInches(12000);
+        Elevator.setInches(2400);
         extendo.setServos(-1);
         pincher.scoreSample();
     }
@@ -109,7 +109,7 @@ public class SuperstructureSubsystem {
      */
     public void ManualInput(double input1) {
 
-        Elevator.setOutput(input1 * 0.1);
+        Elevator.setOutput(input1 * 1);
         telemetry.addData("Elevator tick", Elevator.motor1.getCurrentPosition());
     }
 
