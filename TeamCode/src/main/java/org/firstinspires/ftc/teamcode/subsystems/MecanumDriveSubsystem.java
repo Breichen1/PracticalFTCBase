@@ -100,6 +100,14 @@ public class MecanumDriveSubsystem {
         rightBack.stopAndResetEncoder();
     }
 
+    public void zeroPowerBrake() {
+        // sets a Zero power behavior on the drivetrain motors
+        leftFront.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+        leftBack.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+        rightFront.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+        rightBack.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+    }
+
     public void drivePeriodic() {
         telemetry.addData("Heading", getHeading());
         //Called once per scheduler run
