@@ -53,6 +53,9 @@ public class Teleop2025 extends LinearOpMode {
                 //Drivetrain method
                 m_Drive.Drive(Driver.getLeftX(), Driver.getLeftY(), Driver.getRightX(), Driver.getButton(GamepadKeys.Button.RIGHT_BUMPER));
 
+                // sets the power brake on the drivetrain
+                m_Drive.zeroPowerBrake();
+
                 //Superstructure preset - Zero everything
                 if (Operator.getButton(GamepadKeys.Button.START)) {
                     m_Superstructure.zeroPreset();
