@@ -16,14 +16,16 @@ public class Constants {
     }
 
     public static class SuperstructureConstants {
-        public static final double wristGearRatio = 1;
-        public static final PIDCoefficients wristPID = new PIDCoefficients(0.003, 0, 0);
 
-        public static final double elevatorCPI = 1;
-        public static final PIDCoefficients elevatorPID = new PIDCoefficients(0.005, 0.0001, 0);
+        //Amount of elevator stages in cascade rig. Needed for gear ratio.
+        public static final int elevatorStages = 3;
 
-        public static final double lateratorCPI = 1;
-        public static final PIDCoefficients lateratorPID = new PIDCoefficients(0.005, 0.0001, 0);
+        //Coiunts per inch of the main elevator stage 2229
+        public static final double initialCPI = 1;
+
+        //Initial counts / elevator stages returns the counts per inch for a cascade elevator.
+        public static final double elevatorCPI = initialCPI / elevatorStages;
+        public static final PIDCoefficients elevatorPID = new PIDCoefficients(0.0005, 0.0000, 0);
     }
 
     public static class AutoConstants {

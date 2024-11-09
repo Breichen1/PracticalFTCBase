@@ -53,17 +53,20 @@ public class Teleop2025 extends LinearOpMode {
                 //Drivetrain method
                 m_Drive.Drive(Driver.getLeftX(), Driver.getLeftY(), Driver.getRightX(), Driver.getButton(GamepadKeys.Button.RIGHT_BUMPER));
 
+                // sets the power brake on the drivetrain
+                m_Drive.zeroPowerBrake();
+
                 //Superstructure preset - Zero everything
-                if (Operator.getButton(GamepadKeys.Button.BACK)) {
+                if (Operator.getButton(GamepadKeys.Button.START)) {
                     m_Superstructure.zeroPreset();
                 }
 
                 if (Operator.getButton(GamepadKeys.Button.A)) {
-                    m_Superstructure.pickupPreset();
+                    m_Superstructure.groundPickupPreset();
                 }
 
                 if (Operator.getButton(GamepadKeys.Button.X)) {
-                    m_Superstructure.mediumPreset();
+                    m_Superstructure.lowPreset();
                 }
 
                 if (Operator.getButton(GamepadKeys.Button.Y)) {
@@ -71,20 +74,53 @@ public class Teleop2025 extends LinearOpMode {
                 }
 
                 //Superstructure manual input toggle - Triggered by holding holding left bumper
-                if (Operator.getButton(GamepadKeys.Button.LEFT_BUMPER)) {
-                    m_Superstructure.ManualInput(Operator.getLeftY(), Operator.getRightY() );
+                if (Operator.getButton(GamepadKeys.Button.BACK)) {
+                    m_Superstructure.ManualInput(Operator.getLeftY());
                     telemetry.addData(
                             "MANUAL INPUT", "ENABLED");
                 }
 
                 //Pincher controls
                 if (Operator.getButton(GamepadKeys.Button.LEFT_BUMPER)) {
-                    m_Superstructure.Pincher.open();
+                    m_Superstructure.pincher.open();
                 }
 
                 if ((Operator.getTrigger(GamepadKeys.Trigger.LEFT_TRIGGER) > 0.3)) {
-                    m_Superstructure.Pincher.close();
+                    m_Superstructure.pincher.close();
                 }
+
+              //Wrist controls
+                if (Operator.getButton(GamepadKeys.Button.DPAD_UP)) {
+                    m_Superstructure.pincher.untuck();
+                    //m_Superstructure.laterator.retract();
+                }
+
+                if (Operator.getButton(GamepadKeys.Button.DPAD_DOWN)) {
+                    m_Superstructure.pincher.tuck();
+                    //m_Superstructure.laterator.groundPickup();
+                 }
+
+                if (Operator.getButton(GamepadKeys.Button.DPAD_LEFT)) {
+                    m_Superstructure.pincher.setPivotAngle(0.3);
+                }
+
+                if (Operator.getButton(GamepadKeys.Button.DPAD_RIGHT)) {
+                    m_Superstructure.pincher.setPivotAngle(0.75);
+                }
+
+                if (Operator.getButton(GamepadKeys.Button.A)) {
+                    m_Superstructure.groundPickupPreset();
+                }
+
+                if (Operator.getButton(GamepadKeys.Button.X)) {
+                    m_Superstructure.tuckLaterator();
+                }
+
+               if (Operator.getButton(GamepadKeys.Button.Y)) {
+                    m_Superstructure.HandoffPreset();
+               }
+
+
 
                 telemetry.update();
             }

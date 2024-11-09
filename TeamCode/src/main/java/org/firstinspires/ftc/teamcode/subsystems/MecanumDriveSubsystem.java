@@ -32,8 +32,6 @@ public class MecanumDriveSubsystem {
     private Motor leftBack;
     private Motor rightBack;
     private Telemetry telemetry;
-    //private MecanumDriveKinematics NoDeadwheelKinematics;
-    //private MecanumDriveOdometry NoDeadwheelOdometry
 
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -100,6 +98,14 @@ public class MecanumDriveSubsystem {
     public void resetDriveEncoders() {
         leftFront.stopAndResetEncoder();
         rightBack.stopAndResetEncoder();
+    }
+
+    public void zeroPowerBrake() {
+        // sets a Zero power behavior on the drivetrain motors
+        leftFront.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+        leftBack.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+        rightFront.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+        rightBack.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
     }
 
     public void drivePeriodic() {
